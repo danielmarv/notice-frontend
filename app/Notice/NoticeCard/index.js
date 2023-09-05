@@ -12,15 +12,15 @@ const NoticeCard = ({ notice }) => {
             </a>
           </h2>
           <p className="mb-4 text-sm font-normal text-gray-600">
-            {notice.attributes.description.substring(0, MAX_LENGTH) + ' ...'}
+            {notice.attributes.Details}
           </p>
           <a className="flex items-center text-gray-700" href="#">
             <div className="avatar">
-              <img
+              {/* <img
                 className="flex-shrink-0 object-cover object-center w-12 h-12 rounded-full"
-                src={`http://localhost:1337${notice.attributes.Images.data.attributes.url}`}
+                src={notice.attributes.Images.data.attributes.name}
                 alt={`Photo of ${notice.attributes.Department}`}
-              />
+              /> */}
             </div>
             <div className="ml-2">
               <p className="text-sm font-semibold text-gray-900">
