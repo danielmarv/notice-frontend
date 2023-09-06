@@ -22,7 +22,7 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
           <input
             value={notice.notice}
-            onChange={(e) => setNotice({ ...post, notice: e.target.value })}
+            onChange={(e) => setNotice({ ...notice, notice: e.target.value })}
             type='text'
             placeholder='#Notice Heading'
             required
@@ -37,7 +37,7 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
           <input
             value={notice.department}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            onChange={(e) => setNotice({ ...notice, tag: e.target.value })}
             type='text'
             placeholder='#Department'
             required
@@ -47,29 +47,28 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your 
+            Your Details
           </span>
 
-          <input
-            value={post.details}
-            onChange={(e) => setPost({ ...post, details: e.target.value })}
-            type='text'
-            placeholder='#Details'
+          <textarea
+            value={notice.details}
+            onChange={(e) => setPost({ ...notice, details: e.target.value })}
+            placeholder='Write your detail here'
             required
-            className='form_input'
+            className='form_textarea '
           />
         </label>
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Field of Prompt{" "}
+            Field of Notice{" "}
             <span className='font-normal'>
               (#product, #webdevelopment, #idea, etc.)
             </span>
           </span>
           <input
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            value={notice.tag}
+            onChange={(e) => setNotice({ ...notice, tag: e.target.value })}
             type='text'
             placeholder='#Tag'
             required
@@ -83,8 +82,8 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
           </span>
 
           <input
-            value={post.school}
-            onChange={(e) => setNotice({ ...post, school: e.target.value })}
+            value={notice.school}
+            onChange={(e) => setNotice({ ...notice, school: e.target.value })}
             type='text'
             placeholder='#School'
             required
