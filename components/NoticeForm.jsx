@@ -24,7 +24,7 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
             value={notice.notice}
             onChange={(e) => setNotice({ ...post, notice: e.target.value })}
             type='text'
-            placeholder='#Tag'
+            placeholder='#Notice Heading'
             required
             className='form_input'
           />
@@ -32,14 +32,14 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your 
+            Your Department
           </span>
 
           <input
             value={notice.department}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
             type='text'
-            placeholder='#Tag'
+            placeholder='#Department'
             required
             className='form_input'
           />
@@ -51,26 +51,12 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
           </span>
 
           <input
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            value={post.details}
+            onChange={(e) => setPost({ ...post, details: e.target.value })}
             type='text'
-            placeholder='#Tag'
+            placeholder='#Details'
             required
             className='form_input'
-          />
-        </label>
-
-        <label>
-          <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your 
-          </span>
-
-          <textarea
-            value={post.prompt}
-            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder='Write your post here'
-            required
-            className='form_textarea '
           />
         </label>
 
@@ -86,6 +72,21 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
             type='text'
             placeholder='#Tag'
+            required
+            className='form_input'
+          />
+        </label>
+
+        <label>
+          <span className='font-satoshi font-semibold text-base text-gray-700'>
+            Your School
+          </span>
+
+          <input
+            value={post.school}
+            onChange={(e) => setNotice({ ...post, school: e.target.value })}
+            type='text'
+            placeholder='#School'
             required
             className='form_input'
           />
