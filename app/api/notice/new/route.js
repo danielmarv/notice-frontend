@@ -1,16 +1,16 @@
-import Prompt from "@models/prompt";
+import Notice from "@models/notice";
 import { connectToDB } from "@utils/database";
 
 export const POST = async (request) => {
-    const { userId, prompt, tag } = await request.json();
+    const { userId, notice, tag } = await request.json();
 
     try {
         await connectToDB();
-        const newPrompt = new Prompt({ creator: userId, prompt, tag });
+        const newNotice = new Notice({ creator: userId, notice, tag });
 
-        await newPrompt.save();
-        return new Response(JSON.stringify(newPrompt), { status: 201 })
+        await newNotice.save();
+        return new Response(JSON.stringify(newNotice), { status: 201 })
     } catch (error) {
-        return new Response("Failed to create a new prompt", { status: 500 });
+        return new Response("Failed to create a new Notice", { status: 500 });
     }
 }

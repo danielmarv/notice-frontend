@@ -1,14 +1,14 @@
-import Prompt from "@models/prompt";
+import Notice from "@models/notice";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (request, { params }) => {
     try {
         await connectToDB()
 
-        const prompt = await Prompt.findById(params.id).populate("creator")
-        if (!prompt) return new Response("Prompt Not Found", { status: 404 });
+        const notice = await Notice.findById(params.id).populate("creator")
+        if (!notice) return new Response("Notice Not Found", { status: 404 });
 
-        return new Response(JSON.stringify(prompt), { status: 200 })
+        return new Response(JSON.stringify(notice), { status: 200 })
 
     } catch (error) {
         return new Response("Internal Server Error", { status: 500 });
@@ -16,27 +16,27 @@ export const GET = async (request, { params }) => {
 }
 
 export const PATCH = async (request, { params }) => {
-    const { prompt, tag } = await request.json();
+    const { notice, tag } = await request.json();
 
     try {
         await connectToDB();
 
-        // Find the existing prompt by ID
-        const existingPrompt = await Prompt.findById(params.id);
+        // Find the existing notcie by ID
+        const existingNotice = await Notice.findById(params.id);
 
-        if (!existingPrompt) {
-            return new Response("Prompt not found", { status: 404 });
+        if (!existingNotice) {
+            return new Response("Notice not found", { status: 404 });
         }
 
         // Update the prompt with new data
-        existingPrompt.prompt = prompt;
-        existingPrompt.tag = tag;
+        existingNotice.notice = notice;
+        existingNotice.tag = tag;
 
-        await existingPrompt.save();
+        await existingNotice.save();
 
-        return new Response("Successfully updated the Prompts", { status: 200 });
+        return new Response("Successfully updated the Notices", { status: 200 });
     } catch (error) {
-        return new Response("Error Updating Prompt", { status: 500 });
+        return new Response("Error Updating Notice", { status: 500 });
     }
 };
 
@@ -45,10 +45,10 @@ export const DELETE = async (request, { params }) => {
         await connectToDB();
 
         // Find the prompt by ID and remove it
-        await Prompt.findByIdAndRemove(params.id);
+        await Notice.findByIdAndRemove(params.id);
 
-        return new Response("Prompt deleted successfully", { status: 200 });
+        return new Response("Notice deleted successfully", { status: 200 });
     } catch (error) {
-        return new Response("Error deleting prompt", { status: 500 });
+        return new Response("Error deleting notice", { status: 500 });
     }
 };
