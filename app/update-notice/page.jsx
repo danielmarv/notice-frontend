@@ -3,42 +3,42 @@
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import Form from "@components/Form";
+import NoticeForm from "@components/NoticeForm";
 
-const UpdatePrompt = () => {
+const Updatenotice = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const promptId = searchParams.get("id");
+  const noticeId = searchParams.get("id");
 
-  const [post, setPost] = useState({ prompt: "", tag: "", });
+  const [notice, setNotice] = useState({ notice: "", tag: "", });
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    const getPromptDetails = async () => {
-      const response = await fetch(`/api/prompt/${promptId}`);
+    const getNoticeDetails = async () => {
+      const response = await fetch(`/api/notice/${noticeId}`);
       const data = await response.json();
 
-      setPost({
-        prompt: data.prompt,
+      setNotice({
+        notice: data.notice,
         tag: data.tag,
       });
     };
 
-    if (promptId) getPromptDetails();
-  }, [promptId]);
+    if (noticeId) getNoticeDetails();
+  }, [noticeId]);
 
-  const updatePrompt = async (e) => {
+  const updateNotice = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (!promptId) return alert("Missing PromptId!");
+    if (!noticeId) return alert("Missing noticeId!");
 
     try {
-      const response = await fetch(`/api/prompt/${promptId}`, {
+      const response = await fetch(`/api/notice/${noticeId}`, {
         method: "PATCH",
         body: JSON.stringify({
-          prompt: post.prompt,
-          tag: post.tag,
+          notice: notice.notice,
+          tag: notice.tag,
         }),
       });
 
@@ -53,14 +53,14 @@ const UpdatePrompt = () => {
   };
 
   return (
-    <Form
+    <NoticeForm
       type='Edit'
-      post={post}
-      setPost={setPost}
+      notice={notice}
+      setNotice={setNotice}
       submitting={submitting}
-      handleSubmit={updatePrompt}
+      handleSubmit={updateNotice}
     />
   );
 };
 
-export default UpdatePrompt;
+export default Updatenotice;

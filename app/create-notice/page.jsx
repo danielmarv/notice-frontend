@@ -4,26 +4,26 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-import Form from "@components/Form";
+import NoticeForm from "@components/NoticeForm";
 
-const CreatePrompt = () => {
+const createNotice = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [post, setPost] = useState({ prompt: "", tag: "" });
+  const [notice, setNotice] = useState({ notice: "", tag: "" });
 
-  const createPrompt = async (e) => {
+  const createNotice = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/prompt/new", {
-        method: "POST",
+      const response = await fetch("/api/notice/new", {
+        method: "notice",
         body: JSON.stringify({
-          prompt: post.prompt,
+          notice: notice.notice,
           userId: session?.user.id,
-          tag: post.tag,
+          tag: notice.tag,
         }),
       });
 
@@ -38,14 +38,14 @@ const CreatePrompt = () => {
   };
 
   return (
-    <Form
+    <NoticeForm
       type='Create'
-      post={post}
-      setPost={setPost}
+      notice={notice}
+      setNotice={setNotice}
       submitting={submitting}
-      handleSubmit={createPrompt}
+      handleSubmit={createNotice}
     />
   );
 };
 
-export default CreatePrompt;
+export default createNotice;
