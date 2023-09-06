@@ -4,8 +4,8 @@ import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "Promptopia",
-  description: "Discover & Share AI Prompts",
+  title: "Notice Board",
+  description: "Bugema University Online Notice Board",
 };
 
 const RootLayout = ({ children }) => (
