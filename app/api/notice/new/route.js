@@ -2,11 +2,25 @@ import Notice from "@models/notice";
 import { connectToDB } from "@utils/database";
 
 export const POST = async (request) => {
-    const { userId, notice, tag } = await request.json();
+    const { 
+        userId,
+        notice, 
+        tag,
+        details,
+        department,
+        school, 
+    } = await request.json();
 
     try {
         await connectToDB();
-        const newNotice = new Notice({ creator: userId, notice, tag });
+        const newNotice = new Notice({ creator: 
+            userId, 
+            notice, 
+            tag,
+            details,
+            department,
+            school,
+         });
 
         await newNotice.save();
         return new Response(JSON.stringify(newNotice), { status: 201 })

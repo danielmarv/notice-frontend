@@ -19,11 +19,14 @@ const createNotice = () => {
 
     try {
       const response = await fetch("/api/notice/new", {
-        method: "notice",
+        method: "POST",
         body: JSON.stringify({
           notice: notice.notice,
           userId: session?.user.id,
           tag: notice.tag,
+          department: notice.department,
+          details: notice.details,
+          school: notice.school,
         }),
       });
 

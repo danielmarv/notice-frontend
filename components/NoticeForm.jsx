@@ -52,10 +52,10 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
           <textarea
             value={notice.details}
-            onChange={(e) => setPost({ ...notice, details: e.target.value })}
+            onChange={(e) => setNotice({ ...notice, details: e.target.value })}
             placeholder='Write your detail here'
             required
-            className='form_textarea '
+            className='form_textarea'
           />
         </label>
 
