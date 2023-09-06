@@ -39,6 +39,10 @@ const Nav = () => {
               Create Post
             </Link>
 
+            <Link href='/create-notice' className='black_btn'>
+              Create Notice
+            </Link>
+
             <button type='button' onClick={signOut} className='outline_btn'>
               Sign Out
             </button>
