@@ -4,20 +4,20 @@ import { connectToDB } from "@utils/database";
 export const POST = async (request) => {
     const { 
         userId,
-        notice, 
-        tag,
+        notice,
         details,
+        tag,
         department,
         school, 
     } = await request.json();
 
     try {
         await connectToDB();
-        const newNotice = new Notice({ creator: 
-            userId, 
-            notice, 
-            tag,
+        const newNotice = new Notice({ 
+            creator: userId, 
+            notice,
             details,
+            tag,
             department,
             school,
          });
