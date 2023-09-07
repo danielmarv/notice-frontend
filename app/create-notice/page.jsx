@@ -11,7 +11,7 @@ const createNotice = () => {
   const { data: session } = useSession();
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [notice, setNotice] = useState({ notice: "", tag: "" });
+  const [notice, setNotice] = useState({ notice: "", tag: "", department: "", details: "", school: "" });
 
   const createNotice = async (e) => {
     e.preventDefault();

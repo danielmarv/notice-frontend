@@ -37,7 +37,7 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
           <input
             value={notice.department}
-            onChange={(e) => setNotice({ ...notice, tag: e.target.value })}
+            onChange={(e) => setNotice({ ...notice, department: e.target.value })}
             type='text'
             placeholder='#Department'
             required
