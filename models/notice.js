@@ -29,10 +29,6 @@ const NoticeSchema = new Schema({
     type: String,
     required: [true, 'School name is required.'],
   },
-  type: {
-    type: String,
-    required: [true, 'Type is required is required.'],
-  },
 });
 
 const Notice = models.Notice || model('Notice', NoticeSchema);

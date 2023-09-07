@@ -13,7 +13,7 @@ const createNotice = () => {
   const [submitting, setIsSubmitting] = useState(false);
   const [notice, setNotice] = useState({ notice: "", tag: "", department: "", details: "", school: "" });
 
-  const createNotice = async (e) => {
+  const createNote = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -46,7 +46,7 @@ const createNotice = () => {
       notice={notice}
       setNotice={setNotice}
       submitting={submitting}
-      handleSubmit={createNotice}
+      handleSubmit={createNote}
     />
   );
 };
