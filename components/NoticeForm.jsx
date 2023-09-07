@@ -29,22 +29,6 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
             className='form_input'
           />
         </label>
-
-        <label>
-          <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your Department
-          </span>
-
-          <input
-            value={notice.department}
-            onChange={(e) => setNotice({ ...notice, department: e.target.value })}
-            type='text'
-            placeholder='#Department'
-            required
-            className='form_input'
-          />
-        </label>
-
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
             Your Details
@@ -76,20 +60,6 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
           />
         </label>
 
-        <label>
-          <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your School
-          </span>
-
-          <input
-            value={notice.school}
-            onChange={(e) => setNotice({ ...notice, school: e.target.value })}
-            type='text'
-            placeholder='#School'
-            required
-            className='form_input'
-          />
-        </label>
 
         <div className='flex-end mx-3 mb-5 gap-4'>
           <Link href='/' className='text-gray-500 text-sm'>
