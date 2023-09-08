@@ -2,8 +2,8 @@
 import cloudinary from "cloudinary-core";
 
 const cloudinaryCore = new cloudinary.Cloudinary({
-  cloud_name: "your-cloud-name",
-  api_key: "your-api-key",
+  cloud_name: "dqewkglb5",
+  api_key: "836647329161842",
 });
 
 export default cloudinaryCore;

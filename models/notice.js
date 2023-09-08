@@ -24,7 +24,10 @@ const NoticeSchema = new Schema({
   school: {
     type: String,
     required: [true, 'School name is required.'],
-  }
+  },
+  noticeImage: { 
+    type: String,
+  },
 });
 
 const Notice = models.Notice || model('Notice', NoticeSchema);
