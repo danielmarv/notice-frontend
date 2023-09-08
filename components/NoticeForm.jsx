@@ -46,7 +46,7 @@ const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Field of Notice{" "}
+            Notice Tag{" "}
             <span className='font-normal'>
               (#product, #webdevelopment, #idea, etc.)
             </span>

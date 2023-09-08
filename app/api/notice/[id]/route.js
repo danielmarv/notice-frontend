@@ -16,7 +16,11 @@ export const GET = async (request, { params }) => {
 }
 
 export const PATCH = async (request, { params }) => {
-    const { notice, tag } = await request.json();
+    const { notice,
+        details,
+        tag,
+        department,
+        school } = await request.json();
 
     try {
         await connectToDB();
@@ -30,7 +34,10 @@ export const PATCH = async (request, { params }) => {
 
         // Update the prompt with new data
         existingNotice.notice = notice;
+        existingNotice.details = details;
         existingNotice.tag = tag;
+        existingNotice.department = department;
+        existingNotice.school = school;
 
         await existingNotice.save();
 

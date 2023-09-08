@@ -9,10 +9,6 @@ const NoticeSchema = new Schema({
     type: String,
     required: [true, 'Notice is required.'],
   },
-  description: {
-    type: String,
-    required: [true, 'Description is required.'],
-  },
   details: {
     type: String,
     required: [true, 'Notice is required.'],

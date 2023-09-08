@@ -11,7 +11,7 @@ const createNotice = () => {
   const { data: session } = useSession();
 
   const [submitting, setIsSubmitting] = useState(false);
-  const [notice, setNotice] = useState({ notice: "", tag: "", department: "", details: "", school: "" });
+  const [notice, setNotice] = useState({ notice: "", details: "", tag: "", department: "",  school: "" });
 
   const createNote = async (e) => {
     e.preventDefault();
@@ -21,11 +21,11 @@ const createNotice = () => {
       const response = await fetch("/api/notice/new", {
         method: "POST",
         body: JSON.stringify({
-          notice: notice.notice,
           userId: session?.user.id,
+          notice: notice.notice,
+          details: notice.details,
           tag: notice.tag,
           department: notice.department,
-          details: notice.details,
           school: notice.school,
         }),
       });
