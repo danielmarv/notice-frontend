@@ -8,7 +8,8 @@ export const POST = async (request) => {
         details,
         tag,
         department,
-        school
+        school,
+        noticeImage,
     } = await request.json();
 
     try {
@@ -19,7 +20,8 @@ export const POST = async (request) => {
             details,
             tag,
             department,
-            school
+            school,
+            noticeImage,
          });
 
         await newNotice.save();
