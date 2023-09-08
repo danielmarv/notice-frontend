@@ -1,6 +1,9 @@
 import Link from "next/link";
+import React, { useState } from "react";
+import ImageUploader from "./ImageUpload";
 
 const NoticeForm = ({ type, notice, setNotice, submitting, handleSubmit }) => {
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
