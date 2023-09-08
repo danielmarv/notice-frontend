@@ -1,5 +1,5 @@
-import React from "react";
-import cloudinaryCore from "/@cloudinaryConfig";
+import React, { useState } from "react";
+import cloudinaryCore from "/cloudinaryConfig";
 
 class ImageUploader extends React.Component {
   componentDidMount() {

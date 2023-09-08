@@ -27,6 +27,7 @@ const createNotice = () => {
           tag: notice.tag,
           department: notice.department,
           school: notice.school,
+          noticeImage: notice.noticeImage,
         }),
       });
 
