@@ -1,24 +1,31 @@
-import React, { useState } from "react";
-import cloudinaryCore from "/cloudinaryConfig";
+import React from 'react';
+import { CldUploadWidget } from 'next-cloudinary';
 
-class ImageUploader extends React.Component {
-  componentDidMount() {
-    const options = {
-      cloud_name: "dqewkglb5",
-      upload_preset: "g1nx5osi",
-    };
+const CloudinaryUploader = ({ onImageUpload }) => {
+  const handleUpload = (result) => {
+    if (!result.event) {
+      return; 
+    }
 
-    cloudinaryCore.createUploadWidget(options, (error, result) => {
-      if (!error && result && result.event === "success") {
-        const imageUrl = result.info.secure_url;
-        this.props.onImageUpload(imageUrl);
-      }
-    }).open();
-  }
+    const imageUrl = result.info.secure_url;
+    onImageUpload(imageUrl);
+  };
 
-  render() {
-    return <div className="image-uploader">Upload Image</div>;
-  }
-}
+  return (
+    <CldUploadWidget
+      cloudName="dqewkglb5" 
+      uploadPreset="gxvey7oj" 
+      sources={['local', 'url']}
+      resourceType="auto"
+      onUpload={handleUpload}
+    >
+      {({ open }) => (
+        <div>
+          <button onClick={open}>Upload Image</button>
+        </div>
+      )}
+    </CldUploadWidget>
+  );
+};
 
-export default ImageUploader;
+export default CloudinaryUploader;
