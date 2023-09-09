@@ -10,6 +10,7 @@ export const POST = async (request) => {
         department,
         school,
         noticeImage,
+        createdAt
     } = await request.json();
 
     try {
@@ -22,6 +23,7 @@ export const POST = async (request) => {
             department,
             school,
             noticeImage,
+            createdAt
          });
 
         await newNotice.save();

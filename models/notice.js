@@ -28,6 +28,10 @@ const NoticeSchema = new Schema({
   noticeImage: { 
     type: String,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Notice = models.Notice || model('Notice', NoticeSchema);
