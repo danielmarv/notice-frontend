@@ -27,6 +27,7 @@ const NoticeSchema = new Schema({
   },
   noticeImage: { 
     type: String,
+    required: [true, 'Image is required.'],
   },
   createdAt: {
     type: Date,
