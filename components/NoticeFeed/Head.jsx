@@ -57,7 +57,7 @@ const Head = ({ post, handleEdit, handleDelete }) => {
               alt="Image"
             />
           </div>
-          <div className="flex">
+          <div className="flex justify-center items-center">
             <div className="flex flex-row items-center gap-4 justify-between">
               <div className="flex flex-col">
                 <div className="text-lg font-semibold">{post.school}</div>
