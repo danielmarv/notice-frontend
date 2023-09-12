@@ -23,15 +23,12 @@ const NoticeFeed = () => {
   const [noticeData, setNoticeData] = useState([]);
   
   const fetchNoticeData = async () => {
-    const response = await fetch("/api/notice"); // Replace with the actual path to your API route.
+    const response = await fetch("http://localhost:1337/api/notices?populate=*"); // Replace with the actual path to your API route.
     const data = await response.json();
-    data.forEach((item) => {
-      item.createdAt = new Date(item.createdAt);
-    });
-    const sortedData = data.sort((a, b) => b.createdAt - a.createdAt);
-    const latestItems = sortedData.slice(0, 2);
+    console.log(data);
 
-    setNoticeData(latestItems);
+
+    setNoticeData(data);
   };
 
   useEffect(() => {
