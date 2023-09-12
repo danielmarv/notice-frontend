@@ -31,9 +31,6 @@ const NoticePage = () => {
                              <h2 className="mb-2 text-xl font-bold leading-snug text-gray-900">
                                  <a href="#" className="text-gray-900 hover:text-purple-700">{notice.attributes.notice}</a>
                              </h2>
-                                 <p className="mb-4 text-sm font-normal text-gray-600">
-                                    {notice.attributes.details}
-                                  </p>
                              <a className="flex items-center text-gray-700" href="#">
                                <div className="avatar">
                                   <img
@@ -45,19 +42,15 @@ const NoticePage = () => {
                                <div className="ml-2">
                                    <p className="text-sm font-semibold text-gray-900">{notice.attributes.department}</p>
                                    <p className="text-sm text-gray-600">{notice.attributes.email}</p>
+                                    <p className="mb-4 text-sm font-normal text-gray-600">
+                                      {notice.attributes.details}
+                                    </p>
                                </div>
                              </a>
                            </div>
                         </Link>
                     ))}   
                </div>
-     
-             {/* btns */}
-             <div className="flex flex-col items-center justify-center mt-20 space-x-0 space-y-2 md:space-x-2 md:space-y-0 md:flex-row">
-                 <Link href="/" className="px-3 py-2 text-indigo-500 border border-indigo-500 border-solid hover:text-black md:w-auto">
-                    Home
-                 </Link>
-             </div>
          </section>     
      </>
      )
