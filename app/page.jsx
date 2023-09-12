@@ -1,4 +1,5 @@
 import Feed from "@components/Feed";
+import NoticePage from "@components/NoticeFeed/Body";
 import Notice from "@components/NoticeFeed/Notice";
 
 const Home = () => (
@@ -12,7 +13,7 @@ const Home = () => (
       This is an Online Notice Board System designed to improve on the communication
       in our Community
     </p>
-    <Notice />
+    <NoticePage />
     <Feed />
   </section>
 );
