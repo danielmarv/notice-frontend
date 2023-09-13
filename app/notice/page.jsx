@@ -22,8 +22,8 @@ const NoticeList = () => {
   
     
   const maxLength = 250;
-  const handleItemClick = (index) => {
-    setSelectedNoticeIndex(index);
+  const handleItemClick = (notice) => {
+    setSelectedNoticeIndex(notice);
   };
 
   return (
@@ -31,8 +31,7 @@ const NoticeList = () => {
       <section className="w-full px-2 py-4 mx-auto max-w-7xl md:w-4/5">
         <div className="flex flex-col py-4  md:space-y-0 mt-5">
           {noticeData.map((notice) => (
-            <Link key={notice.id} href={`/notice/${notice.id}`}>
-              <div className="flex flex-col md:flex-row bg-gray-100 rounded-lg pt-4">
+              <div key={notice.id} className="flex flex-col md:flex-row bg-gray-100 rounded-lg pt-4">
                 <div className="md:w-1/2">
                   <div className="avatar">
                     <img
@@ -59,15 +58,63 @@ const NoticeList = () => {
                       {notice.attributes.description}
                     </p>
                   </div>
-                  <Link href={`/notice/${notice.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <button
+                    onClick={() => handleItemClick(notice)}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  >
                     View Details
-                  </Link>
+                  </button>
                 </div>
               </div>
-            </Link>
           ))}
         </div>
       </section>
+      {selectedNoticeIndex !== null && (
+        <div className="fixed top-4 left-4 right-4 bottom-4 flex justify-center items-center bg-white bg-opacity-75 overflow-y-auto">
+          <div className="flex flex-col md:flex-row bg-white rounded-lg pt-4">
+            <div className="md:w-1/2">
+              <div className="avatar">
+                <img
+                  className="md:flex h-70 w-70 rounded-lg"
+                  src={`http://localhost:1337${selectedNoticeIndex.attributes.images.data.attributes.url}`}
+                  alt={"Photo of " + selectedNoticeIndex.attributes.description}
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2 p-4">
+              <h2 className="text-xl font-bold mb-2">
+                {selectedNoticeIndex.attributes.notice}
+              </h2>
+              <p className="mb-4">{selectedNoticeIndex.attributes.description}</p>
+              <div className="flex items-center text-gray-700" href="#">
+                <div>
+                  <p className="text-sm font-semibold text-gray-900">{selectedNoticeIndex.attributes.department}</p>
+                  <p className="text-sm font-semibold text-gray-600">{selectedNoticeIndex.attributes.email}</p>
+                  <p className="text-sm font-semibold text-gray-600">{selectedNoticeIndex.attributes.venue}</p>
+                </div>
+              </div>
+              <div>
+                <p className="mb-4 text-sm font-normal text-gray-600 mt-4">
+                  {selectedNoticeIndex.attributes.description}
+                </p>
+              </div>
+
+              <div>
+                <p className="mb-4 text-sm font-normal text-gray-600 mt-4">
+                  {selectedNoticeIndex.attributes.details}
+                </p>
+              </div>
+
+            <button
+              onClick={() => setSelectedNoticeIndex(null)}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Close
+            </button>
+            </div>
+          </div>
+          </div>
+      )}
     </>
   );
   
