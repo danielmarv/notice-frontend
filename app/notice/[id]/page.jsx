@@ -12,7 +12,7 @@ const NoticeDetail = () => {
 
   useEffect(() => {
     const fetchNoticeDetail = async () => {
-        const res = await fetch(`http://localhost:1337/api/notices/${noticeId}?populate=*&id=${noticeId}`);
+        const res = await fetch(`http://localhost:1337/api/notices?populate=*&id=${noticeId}`);
         const data = await res.json();
         console.log(data);
         setNotice(data.data);

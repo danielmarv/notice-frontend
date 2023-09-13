@@ -55,6 +55,9 @@ const NoticeList = () => {
                       {notice.attributes.description}
                     </p>
                   </div>
+                  <Link href={`/notice/${notice.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    View Details
+                  </Link>
                 </div>
               </div>
             </Link>
