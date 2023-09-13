@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 const NoticeList = () => {
   const [noticeData, setNoticeData] = useState([]);
+  const [selectedNoticeIndex, setSelectedNoticeIndex] = useState(null);
 
   const fetchNoticeData = async () => {
     const res = await fetch("http://localhost:1337/api/notices?populate=*&sort[0]=createdAt:desc&sort[1]=status");
@@ -21,6 +22,9 @@ const NoticeList = () => {
   
     
   const maxLength = 250;
+  const handleItemClick = (index) => {
+    setSelectedNoticeIndex(index);
+  };
 
   return (
     <>
