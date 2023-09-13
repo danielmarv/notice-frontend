@@ -27,7 +27,7 @@ const NoticeList = () => {
       <section className="w-full px-2 py-4 mx-auto max-w-7xl md:w-4/5">
         <div className="flex flex-col py-4  md:space-y-0 mt-5">
           {noticeData.map((notice) => (
-            <Link key={notice.id} href={`/notice/${notice.id}`}>
+            <Link key={notice.id} href={`/notice`}>
               <div className="flex flex-col md:flex-row bg-gray-100 rounded-lg pt-4">
                 <div className="md:w-1/2">
                   <div className="avatar">
