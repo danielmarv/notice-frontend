@@ -4,20 +4,47 @@ import React, { useState } from 'react';
 
 const SubscriptionForm = () => {
   const [email, setEmail] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitted email:', email);
-    setEmail(''); 
+    
+    // Create a data object to send to the Strapi API
+    const data = {
+      email: email,
+    };
+
+    try {
+      const response = await fetch('http://localhost:1337/api/subscriptions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSuccessMessage('Subscription successful!');
+      } else {
+        setErrorMessage('Subscription failed. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage('An error occurred. Please try again later.');
+    }
+
+    setEmail('');
   };
+
 
   return (
     <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-      <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+      <div className=" isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-2 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
