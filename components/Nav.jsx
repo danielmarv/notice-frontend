@@ -33,23 +33,23 @@ const Nav = () => {
 
       {/* Desktop Navigation */}
       <div className='hidden sm:flex'>
-        {session?.user ? (
+        {/* {session?.user ? ( */}
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-prompt' className='black_btn'>
-              Create Post
+            <Link href='https://bugemauniv.ac.ug/' className='black_btn'>
+              Notices
             </Link>
 
-            <Link href='/create-notice' className='black_btn'>
-              Create Notice
+            <Link href='/notice' className='black_btn'>
+              Notices
             </Link>
 
             <button type='button' onClick={signOut} className='outline_btn'>
               Sign Out
             </button>
 
-            <Link href='/profile'>
+            <Link href='/notice'>
               <Image
-                src={session?.user.image}
+                src='/assets/images/logo.svg'
                 width={37}
                 height={37}
                 className='rounded-full'
@@ -57,8 +57,8 @@ const Nav = () => {
               />
             </Link>
           </div>
-        ) : (
-          <>
+        {/* ) : ( */}
+          {/* <>
             {providers &&
               Object.values(providers).map((provider) => (
                 <button
@@ -72,16 +72,16 @@ const Nav = () => {
                   Sign in
                 </button>
               ))}
-          </>
-        )}
+          </> */}
+        {/* )} */}
       </div>
 
       {/* Mobile Navigation */}
       <div className='relative flex sm:hidden'>
-        {session?.user ? (
+        {/* {session?.user ? ( */}
           <div className='flex'>
             <Image
-              src={session?.user.image}
+              src='/assets/images/logo.svg'
               width={37}
               height={37}
               className='rounded-full'
@@ -92,20 +92,20 @@ const Nav = () => {
             {toggleDropdown && (
               <div className='dropdown'>
                 <Link
-                  href='/profile'
+                  href='https://bugemauniv.ac.ug/'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
                 >
-                  My Profile
+                  Home
                 </Link>
                 <Link
-                  href='/create-prompt'
+                  href='/notice'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
                 >
-                  Create Prompt
+                  Notices
                 </Link>
-                <Link
+                {/* <Link
                   href='/create-notice'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
@@ -121,12 +121,12 @@ const Nav = () => {
                   className='w-full mt-5 black_btn'
                 >
                   Sign Out
-                </button>
+                </button> */}
               </div>
             )}
           </div>
-        ) : (
-          <>
+        {/* ) : ( */}
+          {/* <>
             {providers &&
               Object.values(providers).map((provider) => (
                 <button
@@ -140,8 +140,8 @@ const Nav = () => {
                   Sign in
                 </button>
               ))}
-          </>
-        )}
+          </> */}
+        {/* )} */}
       </div>
     </nav>
   );

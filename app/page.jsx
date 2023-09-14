@@ -14,7 +14,7 @@ const Home = () => (
     </p>
     <NoticePage />
     
-    <Feed />
+    {/* <Feed /> */}
     {/* <NewsLetter /> */}
   </section>
 );
