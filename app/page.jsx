@@ -1,7 +1,7 @@
 import Feed from "@components/Feed";
 import NoticePage from "@components/NoticeFeed/Body";
 import Notice from "@components/NoticeFeed/Notice";
-import NewsLetter from "@components/newsletter";
+import SubscriptionForm from "@components/newsletter";
 
 const Home = () => (
   <section className='flex-col w-full flex-center'>
@@ -15,8 +15,9 @@ const Home = () => (
       in our Community
     </p>
     <NoticePage />
+    <SubscriptionForm />
     <Feed />
-    <NewsLetter />
+    {/* <NewsLetter /> */}
   </section>
 );
 
