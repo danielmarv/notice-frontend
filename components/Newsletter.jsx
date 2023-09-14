@@ -17,30 +17,6 @@ const SubscriptionForm = () => {
 
   return (
     <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Subscribe to Our Newsletter</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={handleEmailChange}
-            className="border border-gray-300 rounded w-full py-2 px-3 focus:outline-none focus:ring focus:ring-blue-200"
-            placeholder="you@example.com"
-            required
-          />
-        </div>
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
-          >
-            Subscribe
-          </button>
-        </div>
-      </form>
       <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
@@ -52,13 +28,16 @@ const SubscriptionForm = () => {
               Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
+            <form onSubmit={handleSubmit}>
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
               <input
-                id="email-address"
-                name="email"
                 type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={handleEmailChange}
                 autoComplete="email"
                 required
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
@@ -70,6 +49,7 @@ const SubscriptionForm = () => {
               >
                 Subscribe
               </button>
+              </form>
             </div>
           </div>
           <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">

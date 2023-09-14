@@ -2,6 +2,7 @@ import "@styles/globals.css";
 
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
+import SubscriptionForm from "@components/newsletter";
 
 export const metadata = {
   title: "Notice Board",
@@ -19,6 +20,7 @@ const RootLayout = ({ children }) => (
         <main className='app'>
           <Nav />
           {children}
+          <SubscriptionForm />
         </main>
       </Provider>
     </body>
