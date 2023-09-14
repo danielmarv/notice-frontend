@@ -13,12 +13,15 @@ const SubscriptionForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Create a data object to send to the Strapi API
-    const data = {
-      email: email,
-    };
 
+    const data = {
+      data: {
+        attributes: {
+          email: email,
+        },
+      },
+    };
+    
     try {
       const response = await fetch('http://localhost:1337/api/subscriptions', {
         method: 'POST',
@@ -76,6 +79,8 @@ const SubscriptionForm = () => {
               >
                 Subscribe
               </button>
+              {successMessage && <p className="text-green-500">{successMessage}</p>}
+              {errorMessage && <p className="text-red-500">{errorMessage}</p>}
               </form>
             </div>
           </div>
