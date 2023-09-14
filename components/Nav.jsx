@@ -20,7 +20,7 @@ const Nav = () => {
 
   return (
     <nav className='w-full pt-3 mb-16 flex-between'>
-      <Link href='/' className='flex gap-2 flex-center'>
+      <Link href='https://bugemauniv.ac.ug/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/logo.svg'
           alt='logo'
@@ -35,17 +35,16 @@ const Nav = () => {
       <div className='hidden sm:flex'>
         {/* {session?.user ? ( */}
           <div className='flex gap-3 md:gap-5'>
-            <Link href='https://bugemauniv.ac.ug/' className='black_btn'>
-              Notices
+            <Link href='/' className='black_btn'>
+              Home
             </Link>
 
             <Link href='/notice' className='black_btn'>
               Notices
             </Link>
-
-            <button type='button' onClick={signOut} className='outline_btn'>
-              Sign Out
-            </button>
+            <Link href='/notice' className='outline_btn'>
+              Sign In
+            </Link>
 
             <Link href='/notice'>
               <Image
