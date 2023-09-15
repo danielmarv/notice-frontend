@@ -91,7 +91,7 @@ const Nav = () => {
             {toggleDropdown && (
               <div className='dropdown'>
                 <Link
-                  href='https://bugemauniv.ac.ug/'
+                  href='/'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
                 >
