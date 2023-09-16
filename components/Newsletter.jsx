@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { createSubscription } from "../app/api/subscription";
+import { createSubscription } from '@app/api/subscription/route';
 
 const SubscriptionForm = () => {
   const [formData, setFormData] = useState({
