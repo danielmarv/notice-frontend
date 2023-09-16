@@ -1,45 +1,52 @@
 "use client";
 
 import React, { useState } from 'react';
-import { createSubscription } from '@app/api/subscription/route';
 
 const SubscriptionForm = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-  });
+  const [email, setEmail] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleEmailChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setEmail(e.target.value);
   };
 
   const handleSubmit = async (e) => {
-
+    e.preventDefault();
+    
     if (!email || !email.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)) {
       setErrorMessage('Please enter a valid email address.');
       return;
     }  
 
+    const data = {
+      data: {
+        attributes: {
+          email
+        },
+      },
+    };
+    
     try {
-      await createSubscription(formData);
+      const response = await fetch('http://localhost:1337/api/subscriptions', {
+        method: 'POST',
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
+        body: JSON.stringify(data),
+      });
 
       if (response.ok) {
         setSuccessMessage('Subscription successful!');
       } else {
         setErrorMessage('Subscription failed. Please try again later.');
       }
-      // Optionally, you can perform additional actions after a successful subscription
     } catch (error) {
-
+      console.error('Error:', error);
       setErrorMessage('An error occurred. Please try again later.');
-      // Handle errors if the subscription creation fails
     }
 
+    setEmail('');
   };
 
 
@@ -64,7 +71,7 @@ const SubscriptionForm = () => {
               <input
                 type="Email"
                 name="email"
-                value={formData.email}
+                value={email}
                 onChange={handleEmailChange}
                 autoComplete="email"
                 required
