@@ -19,7 +19,7 @@ const SubscriptionForm = () => {
     
     try {
       const response = await axios.post('http://localhost:1337/api/subscriptions', {
-        data: email
+        data: formData,
       });
 
       if (response.ok) {
