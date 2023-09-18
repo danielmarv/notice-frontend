@@ -3,20 +3,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+// import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
-  const [providers, setProviders] = useState(null);
+  // const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      const res = await getProviders();
-      setProviders(res);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const res = await getProviders();
+  //     setProviders(res);
+  //   })();
+  // }, []);
 
   return (
     <nav className='w-full pt-3 mb-16 flex-between'>
@@ -26,7 +26,7 @@ const Nav = () => {
           alt='logo'
           width={30}
           height={30}
-          className='object-contain'
+          className='object-contain cursor-pointer'
         />
         <p className='logo_text'>BU Notice Board</p>
       </Link>
@@ -35,14 +35,14 @@ const Nav = () => {
       <div className='hidden sm:flex'>
         {/* {session?.user ? ( */}
           <div className='flex gap-3 md:gap-5'>
-            <Link href='/' className='black_btn'>
+            <Link href='/' className='black_btn cursor-pointer'>
               Home
             </Link>
 
-            <Link href='/notice' className='black_btn'>
+            <Link href='/notice' className='black_btn cursor-pointer'>
               Notices
             </Link>
-            <Link href='/notice' className='outline_btn'>
+            <Link href='/notice' className='outline_btn cursor-pointer'>
               Sign In
             </Link>
 
@@ -51,7 +51,7 @@ const Nav = () => {
                 src='/assets/images/logo.svg'
                 width={37}
                 height={37}
-                className='rounded-full'
+                className='rounded-full cursor-pointer'
                 alt='profile'
               />
             </Link>

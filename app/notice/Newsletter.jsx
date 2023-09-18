@@ -11,22 +11,19 @@ const SubscriptionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!email || !email.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)) {
-      setErrorMessage('Please enter a valid email address.');
-      return;
-    }  
+    // if (!formData || !formData.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)) {
+    //   setErrorMessage('Please enter a valid email address.');
+    //   return;
+    // }  
 
     
     try {
-      const response = await axios.post('http://localhost:1337/api/subscriptions', {
+      await axios.post('http://localhost:1337/api/subscriptions', {
         data: formData,
       });
 
-      if (response.ok) {
         setSuccessMessage('Subscription successful!');
-      } else {
-        setErrorMessage('Subscription failed. Please try again later.');
-      }
+
     } catch (error) {
       console.error('Error:', error);
       setErrorMessage('An error occurred. Please try again later.');

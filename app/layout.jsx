@@ -1,8 +1,8 @@
-import "@styles/globals.css";
+import "../styles/globals.css";
 
-import Nav from "@components/Nav";
-import Provider from "@components/Provider";
-import SubscriptionForm from "@components/newsletter";
+import Nav from "/components/Nav";
+// import Provider from "../components/Provider";
+import SubscriptionForm from "./notice/Newsletter";
 
 export const metadata = {
   title: "Notice Board",
@@ -12,7 +12,7 @@ export const metadata = {
 const RootLayout = ({ children }) => (
   <html lang='en'>
     <body>
-      <Provider>
+      {/* <Provider> */}
         <div className='main'>
           <div className='gradient' />
         </div>
@@ -22,7 +22,7 @@ const RootLayout = ({ children }) => (
           {children}
           <SubscriptionForm />
         </main>
-      </Provider>
+      {/* </Provider> */}
     </body>
   </html>
 );

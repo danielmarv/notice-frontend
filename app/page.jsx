@@ -1,5 +1,5 @@
-import Feed from "@components/Feed";
-import NoticePage from "@components/NoticeFeed/Body";
+// import Feed from "@components/Feed";
+import NoticePage from "../components/NoticeFeed/Body";
 
 const Home = () => (
   <section className='flex-col w-full flex-center'>
